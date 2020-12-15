@@ -1,0 +1,7 @@
+{
+  "name": "SnapRil19",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
