@@ -16,7 +16,7 @@ export class SignInPage {
 
   public signInForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(3)]]
+    password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
   constructor(private readonly authService: AuthService, private readonly fb: FormBuilder, private readonly router: Router) { }
