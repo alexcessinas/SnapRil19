@@ -26,7 +26,7 @@ export class SignInPage {
       const email = this.signInForm.get('email').value;
       const password = this.signInForm.get('password').value;
 
-      this.authService.signIn(email, password).then(() => this.router.navigate(['/tabs'])).catch(err => this.error = err);
+      this.authService.signIn(email, password).then(() => this.router.navigate(['/'])).catch(err => this.error = err);
     }
   }
 }

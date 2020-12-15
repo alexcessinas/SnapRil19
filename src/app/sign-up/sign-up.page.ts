@@ -35,7 +35,7 @@ export class SignUpPage {
 
       this.authService.signUp(email, password).then((credential) => {
         this.userService.createUser(credential.user.uid, username);
-        this.router.navigate(['/tabs']);
+        this.router.navigate(['/']);
       });
     }
   }
