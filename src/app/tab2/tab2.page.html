@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Tab 2
@@ -6,10 +6,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content #content >
   <app-table-messages [messages]="messages"></app-table-messages>
 </ion-content>
-<ion-footer class="row form-group" style="margin-left: 0px">
+<ion-footer  class="row form-group" style="margin-left: 0px">
     <ion-textarea [formControl]="textControl" style="width: 85%" [(ngModel)]="text"></ion-textarea>
     <ion-button
             [disabled]="textControl.invalid"

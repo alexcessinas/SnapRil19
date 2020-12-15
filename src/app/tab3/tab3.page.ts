@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'snapril-lib';
+import { MessageService } from '../services/message/message.service';
+import { FriendService } from '../services/friend/friend.service';
 
 @Component({
   selector: 'app-tab3',
@@ -9,10 +11,14 @@ import { User } from 'snapril-lib';
 export class Tab3Page implements OnInit{
   users: User[];
 
-  constructor() {}
+  constructor(private readonly friendService: FriendService) {}
 
   ngOnInit(): void {
-    this.users = [
+    this.friendService.getAllUser().subscribe(value => {
+      console.log(value);
+      this.users = value;
+    });
+    /*this.users = [
       {
         id: '12',
         username: 'TOTO',
@@ -33,7 +39,7 @@ export class Tab3Page implements OnInit{
         username: 'TOTO',
         picture: 'pic'
       }
-    ];
+    ];*/
   }
 
 }

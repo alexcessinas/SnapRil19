@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Icons } from '../constants/icons.constant';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -25,7 +25,10 @@ export class SignInPage {
       const email = this.signInForm.get('email').value;
       const password = this.signInForm.get('password').value;
 
-      this.authService.signIn(email, password).then(() => this.router.navigate(['/tabs']));
+      this.authService.signIn(email, password).then(() => {
+        this.router.navigate(['/tabs']);
+        console.log('LOG');
+      });
     }
   }
 }
