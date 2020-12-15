@@ -13,7 +13,8 @@ export class UserService {
   constructor(private readonly afdb: AngularFireDatabase, private readonly auth: AngularFireAuth) { }
 
   createUser(id: string, username: string) {
-    const user: User = { id, username };
+    const picture = 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png';
+    const user: User = { id, username, picture };
     this.afdb.list<User>(this.dbRef).set(id, user);
   }
 }

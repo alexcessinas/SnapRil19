@@ -37,7 +37,6 @@ export class SignUpPage {
         this.userService.createUser(credential.user.uid, username);
         this.router.navigate(['/tabs']);
       });
-      
     }
   }
 }
