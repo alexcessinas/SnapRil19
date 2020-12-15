@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Icons } from '../constants/icons.constant';
 import { AuthService } from '../services/auth/auth.service';
+import { UserService } from '../services/user/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,7 +20,12 @@ export class SignUpPage {
     password: ['', [Validators.required, Validators.minLength(3)]]
   });
 
-  constructor(private readonly authService: AuthService, private readonly fb: FormBuilder, private readonly router: Router) { }
+  constructor(
+    private readonly authService: AuthService,
+    private readonly fb: FormBuilder,
+    private readonly router: Router,
+    private readonly userService: UserService
+  ) { }
 
   public signUp() {
     if (this.signUpForm.valid) {
@@ -27,7 +33,11 @@ export class SignUpPage {
       const email = this.signUpForm.get('email').value;
       const password = this.signUpForm.get('password').value;
 
-      this.authService.signUp(email, password).then(() => this.router.navigate(['/tabs']));
+      this.authService.signUp(email, password).then((credential) => {
+        this.userService.createUser(credential.user.uid, username);
+        this.router.navigate(['/tabs']);
+      });
+      
     }
   }
 }

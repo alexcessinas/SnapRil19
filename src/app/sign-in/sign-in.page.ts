@@ -12,6 +12,7 @@ import { AuthService } from '../services/auth/auth.service';
 export class SignInPage {
 
   public icons = Icons.auth;
+  public error: string;
 
   public signInForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -25,10 +26,7 @@ export class SignInPage {
       const email = this.signInForm.get('email').value;
       const password = this.signInForm.get('password').value;
 
-      this.authService.signIn(email, password).then(() => {
-        this.router.navigate(['/tabs']);
-        console.log('LOG');
-      });
+      this.authService.signIn(email, password).then(() => this.router.navigate(['/tabs'])).catch(err => this.error = err);
     }
   }
 }

@@ -19,6 +19,9 @@
       <input type="password" formControlName="password" class="form-control" placeholder="Mot de passe">
     </div>
     <div class="mb-2">
+      <p [hidden]="!error" class="text-danger">Email ou mot de passe incorrect.</p>
+    </div>
+    <div class="mb-2">
       <a [routerLink]="['/signup']">Pas encore de compte ?</a>
     </div>
     <button class="btn btn-primary" type="submit" [disabled]="!signInForm.valid">
