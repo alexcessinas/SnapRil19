@@ -11,10 +11,6 @@ export class FriendService {
     constructor(private readonly fireDatabase: AngularFireDatabase) {
     }
 
-    async send() {
-        console.log('SEND');
-    }
-
     getAllUser(): Observable<User[]> {
         return this.fireDatabase.list<User>('user').valueChanges();
     }
