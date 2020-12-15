@@ -4,6 +4,8 @@
   </ion-avatar>
   <ion-label>
     <h3>{{value?.author?.username | uppercase}} - {{value?.date}}</h3>
-    <p>{{value?.content}}</p>
+    <ion-text class="text-wrap">
+      <p>{{value?.content}}</p>
+    </ion-text>
   </ion-label>
 </ion-item>

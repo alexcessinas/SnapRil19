@@ -1,6 +1,6 @@
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
-import { MessagePage } from './message.page';
+import { RowMessagePage } from './row-message.page';
 import { CommonModule } from '@angular/common';
 
 
@@ -10,8 +10,8 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   exports: [
-    MessagePage
+    RowMessagePage
   ],
-  declarations: [MessagePage]
+  declarations: [RowMessagePage]
 })
-export class MessagePageModule {}
+export class RowMessagePageModule {}

@@ -2,10 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Message } from 'snapril-lib';
 
 @Component({
-  selector: 'app-message',
-  templateUrl: 'message.page.html'
+  selector: 'app-row-message',
+  templateUrl: 'row-message.page.html'
 })
-export class MessagePage {
+export class RowMessagePage {
   @Input() value: Message;
 
   constructor() {
