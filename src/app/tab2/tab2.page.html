@@ -9,9 +9,11 @@
 <ion-content [fullscreen]="true">
   <app-table-messages [messages]="messages"></app-table-messages>
 </ion-content>
-<ion-footer class="row">
-    <ion-textarea style="width: 85%"></ion-textarea>
+<ion-footer class="row form-group" style="margin-left: 0px">
+    <ion-textarea [formControl]="textControl" style="width: 85%" [(ngModel)]="text"></ion-textarea>
     <ion-button
+            [disabled]="textControl.invalid"
+            (click)="send()"
             style="width: 15%; align-self: center"
             class="ion-float-right">
       <ion-icon name="send-outline"></ion-icon>

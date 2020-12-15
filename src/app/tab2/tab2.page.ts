@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Message } from 'snapril-lib';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-tab2',
@@ -9,6 +10,8 @@ import { Message } from 'snapril-lib';
 export class Tab2Page implements OnInit {
 
     messages: Message[];
+    text: string;
+    public textControl = new FormControl(null, Validators.required);
 
     constructor() {
     }
@@ -19,7 +22,7 @@ export class Tab2Page implements OnInit {
                 author: {
                     id: '12',
                     username: 'toto',
-                    picture: '',
+                    picture: '../../assets/icon/picture.png',
                 },
                 content: 'MESSAGE',
                 date: 12,
@@ -29,13 +32,19 @@ export class Tab2Page implements OnInit {
                 author: {
                     id: '12',
                     username: 'toto',
-                    picture: '',
+                    picture: '../../assets/icon/picture.png',
                 },
                 content: 'MESSAGE',
                 date: 12,
                 geolocation: 'ici'
             }
         ];
+    }
+
+    public send(): void {
+        console.log('SEND', this.text);
+        // Hop à la reponse du subscribe on vide le champ
+        this.text = null;
     }
 
 }
