@@ -12,7 +12,7 @@ export class FriendService {
     }
 
     getAllUser(): Observable<User[]> {
-        return this.fireDatabase.list<User>('user').valueChanges();
+        return this.fireDatabase.list<User>('users').valueChanges();
     }
 
 }
