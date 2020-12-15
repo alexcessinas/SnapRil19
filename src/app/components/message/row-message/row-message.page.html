@@ -1,0 +1,11 @@
+<ion-item>
+  <ion-avatar slot="start">
+    <img [src]="value?.author?.picture"/>
+  </ion-avatar>
+  <ion-label>
+    <h3>{{value?.author?.username | titlecase}} - le {{value?.date | date :'dd/MM HH:mm'}}</h3>
+    <ion-text class="text-wrap">
+      <p>{{value?.content}}</p>
+    </ion-text>
+  </ion-label>
+</ion-item>
