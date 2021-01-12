@@ -1,6 +1,7 @@
 <ion-item>
   <ion-avatar slot="start">
-    <img [src]="value?.picture"/>
+    <img [src]="value?.picture" alt="LALA"/>
   </ion-avatar>
   <ion-label>{{value?.username | titlecase}}</ion-label>
+  <ion-checkbox *ngIf="shownSelect" [value]="selectedValue" slot="end"></ion-checkbox>
 </ion-item>

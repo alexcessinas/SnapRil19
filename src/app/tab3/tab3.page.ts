@@ -18,28 +18,6 @@ export class Tab3Page implements OnInit{
       console.log(value);
       this.users = value;
     });
-    /*this.users = [
-      {
-        id: '12',
-        username: 'TOTO',
-        picture: 'pic'
-      },
-      {
-        id: '12',
-        username: 'TOTO',
-        picture: 'pic'
-      },
-      {
-        id: '12',
-        username: 'TOTO',
-        picture: 'pic'
-      },
-      {
-        id: '12',
-        username: 'TOTO',
-        picture: 'pic'
-      }
-    ];*/
   }
 
 }
