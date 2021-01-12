@@ -14,8 +14,10 @@ export class SignInPage {
   public icons = Icons.auth;
   public error: string;
 
+  private emailValidator = /^[a-z]+.[a-z]+@viacesi.fr$/;
+
   public signInForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.pattern(this.emailValidator)]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
@@ -26,7 +28,7 @@ export class SignInPage {
       const email = this.signInForm.get('email').value;
       const password = this.signInForm.get('password').value;
 
-      this.authService.signIn(email, password).then(() => this.router.navigate(['/tabs'])).catch(err => this.error = err);
+      this.authService.signIn(email, password).then(() => this.router.navigate(['/'])).catch(err => this.error = err);
     }
   }
 }

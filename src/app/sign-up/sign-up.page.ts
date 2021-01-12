@@ -14,9 +14,11 @@ export class SignUpPage {
 
   public icons = Icons.auth;
 
+  private emailValidator = /^[a-z]+.[a-z]+@viacesi.fr$/;
+
   public signUpForm = this.fb.group({
     username: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.pattern(this.emailValidator)]],
     password: ['', [Validators.required, Validators.minLength(3)]]
   });
 
