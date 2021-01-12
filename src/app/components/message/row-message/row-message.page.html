@@ -1,11 +1,11 @@
-<ion-item>
-  <ion-avatar slot="start">
-    <img [src]="value?.author?.picture"/>
-  </ion-avatar>
-  <ion-label>
-    <h3>{{value?.author?.username | titlecase}} - le {{value?.date | date :'dd/MM HH:mm'}}</h3>
-    <ion-text class="text-wrap">
-      <p>{{value?.content}}</p>
-    </ion-text>
-  </ion-label>
-</ion-item>
+<ion-card [ngClass]="overloadClass">
+  <ion-item class="d-flex align-items-start">
+    <ion-avatar slot="start">
+      <img [src]="value?.author?.picture"/>
+    </ion-avatar>
+    <ion-label>
+      <ion-card-subtitle>{{value?.date | date: datePattern}} - {{value?.author?.username | titlecase}}</ion-card-subtitle>
+      <ion-text class="text-wrap">{{value?.content}}</ion-text>
+    </ion-label>
+  </ion-item>
+</ion-card>

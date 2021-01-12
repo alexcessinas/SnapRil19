@@ -6,8 +6,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content #content >
-  <app-table-messages [messages]="messages"></app-table-messages>
+<ion-content [scrollEvents]="true">
+  <app-table-messages [currentUser]="currentUser" [messages]="messages"></app-table-messages>
 </ion-content>
 <ion-footer  class="row form-group" style="margin-left: 0px">
     <ion-textarea [formControl]="textControl" style="width: 85%" [(ngModel)]="text"></ion-textarea>

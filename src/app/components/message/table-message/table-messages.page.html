@@ -1,5 +1,6 @@
 <ion-list>
-  <div *ngFor="let message of messages">
-    <app-row-message [value]="message"></app-row-message>
+  <div>
+    <app-row-message  *ngFor="let message of messages" [value]="message" 
+                      [overloadClass]="currentUser?.id != message?.author?.id ? 'mr-5' : 'ml-5'"></app-row-message>
   </div>
 </ion-list>
