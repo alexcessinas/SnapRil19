@@ -4,6 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { MessageService } from '../services/message/message.service';
 import { first } from 'rxjs/operators';
 import { IonContent } from '@ionic/angular';
+import { UserService } from '../services/user/user.service';
 
 @Component({
     selector: 'app-tab2',
@@ -18,7 +19,7 @@ export class Tab2Page implements OnInit {
 
     @ViewChild('content') contentElem: IonContent;
 
-    constructor(private readonly messageService: MessageService) {
+    constructor(private readonly messageService: MessageService, private readonly userService: UserService) {
     }
 
     ngOnInit(): void {
@@ -39,17 +40,15 @@ export class Tab2Page implements OnInit {
     }
 
     public send(): void {
-        const data: Message = {
-            date: Date.now(),
-            author: {
-                id: '12',
-                picture: 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png',
-                username: 'TOTO'
-            },
-            geolocation: 'ICI',
-            content: this.text
-        };
-        this.messageService.send(data);
-        this.text = null;
+        this.userService.getCurrentUser().subscribe(author => {
+            const data: Message = {
+                date: Date.now(),
+                author,
+                geolocation: 'ICI',
+                content: this.text
+            };
+            this.messageService.send(data);
+            this.text = null;
+        });
     }
 }
