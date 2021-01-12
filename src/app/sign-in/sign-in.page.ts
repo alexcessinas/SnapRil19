@@ -14,9 +14,11 @@ export class SignInPage {
   public icons = Icons.auth;
   public error: string;
 
+  private emailValidator = /^[a-z]+.[a-z]+@viacesi.fr$/;
+
   public signInForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(3)]]
+    email: ['', [Validators.required, Validators.pattern(this.emailValidator)]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
   constructor(private readonly authService: AuthService, private readonly fb: FormBuilder, private readonly router: Router) { }

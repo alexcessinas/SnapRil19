@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services/user/user.service';
 import { Icons } from '../constants/icons.constant';
 
 @Component({
@@ -9,6 +10,6 @@ import { Icons } from '../constants/icons.constant';
 export class TabsPage {
   icon = Icons;
 
-  constructor() {}
+  constructor(private readonly userService: UserService) {}
 
 }
