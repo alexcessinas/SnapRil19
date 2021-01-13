@@ -1,10 +1,10 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Message } from 'snapril-lib';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Message, User } from 'snapril-lib';
 import { FormControl, Validators } from '@angular/forms';
 import { MessageService } from '../services/message/message.service';
 import { first } from 'rxjs/operators';
-import { IonContent } from '@ionic/angular';
 import { UserService } from '../services/user/user.service';
+import { IonContent } from '@ionic/angular';
 import { PhotoService } from '../services/photo/photo.service';
 
 @Component({
@@ -12,8 +12,11 @@ import { PhotoService } from '../services/photo/photo.service';
     templateUrl: 'tab2.page.html',
     styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit {
+export class Tab2Page implements OnInit, AfterViewChecked {
 
+    @ViewChild(IonContent) public ionContent: IonContent;
+
+    public currentUser: User;
     messages: Message[] = [];
     text: string;
     public textControl = new FormControl(null, Validators.required);
@@ -28,20 +31,20 @@ export class Tab2Page implements OnInit {
     }
 
     ngOnInit(): void {
-        this.messageService.getAllMessage().pipe(first()).subscribe(value => {
-            console.log(value);
-            this.messages = value;
-            if (this.contentElem){
-                this.contentElem.scrollToBottom(0);
-            }
+        this.userService.getCurrentUser().subscribe(user => {
+            this.currentUser = user;
+            this.messageService.getAllMessage().pipe(first()).subscribe(value => {
+                this.messages = value;
+            });
+            this.messageService.getLastMessage$().subscribe(value => {
+                this.messages.push(value);
+                setTimeout(() => {this.ionContent.scrollToBottom(0)}, 500)
+            });
         });
-        this.messageService.getLastMessage$().subscribe(value => {
-            this.messages.push(value);
-            if (this.contentElem){
-                this.contentElem.scrollToBottom(0);
-            }
-        });
+    }
 
+    ngAfterViewChecked(): void {
+        this.ionContent.scrollToBottom(0);
     }
 
     public send(): void {

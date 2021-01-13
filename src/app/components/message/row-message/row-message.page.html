@@ -1,12 +1,14 @@
-<ion-item>
-  <ion-avatar slot="start">
-    <img [src]="value?.author?.picture"/>
-  </ion-avatar>
-  <ion-label>
-    <h3>{{value?.author?.username | titlecase}} - le {{value?.date | date :'dd/MM HH:mm'}}</h3>
-    <ion-text class="text-wrap">
-      <p *ngIf="!isPicture">{{value?.content}}</p>
-      <img style="width: 50%" [src]="value?.content" *ngIf="isPicture" alt="Photo"/>
-    </ion-text>
-  </ion-label>
-</ion-item>
+<ion-card [ngClass]="overloadClass">
+  <ion-item lines="none" class="d-flex align-items-start">
+    <ion-avatar slot="start">
+      <img [src]="value?.author?.picture"/>
+    </ion-avatar>
+    <ion-label>
+      <ion-card-subtitle>{{value?.date | date: datePattern}} - {{value?.author?.username | titlecase}}</ion-card-subtitle>
+      <ion-text class="text-wrap">
+        <p *ngIf="!isPicture">{{value?.content}}</p>
+        <img style="width: 50%" [src]="value?.content" *ngIf="isPicture" alt="Photo"/>
+      </ion-text>
+    </ion-label>
+  </ion-item>
+</ion-card>

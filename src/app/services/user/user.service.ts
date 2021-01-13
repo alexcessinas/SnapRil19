@@ -30,4 +30,8 @@ export class UserService {
 
     return this.userSubject.asObservable();
   }
+
+  public update(user: User): void {
+    this.afdb.list<User>(this.dbRef).update(user.id, user);
+  }
 }

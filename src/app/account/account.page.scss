@@ -1,20 +1,6 @@
-ion-card-header {
-    display: flex;
-    justify-content: space-evenly;
-    align-self: center;
-
-    ion-card-title {
-        margin: auto 0;
-    }
-
-    ion-img {
-        height: auto;
-        width: 25vw;
-    }
-}
-
 ion-card-content {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
     button {

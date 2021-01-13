@@ -14,7 +14,9 @@ export class MessageService {
     }
 
     send(data: Message): void {
-        this.fireDatabase.list<Message>('general').push(data);
+        if (data.content && data.content != '') {
+            this.fireDatabase.list<Message>('general').push(data);
+        }
     }
 
     getAllMessage(): Observable<Message[]> {

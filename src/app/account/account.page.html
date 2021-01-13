@@ -7,17 +7,28 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="account">
+  <div>
+    
+  </div>
+  <ion-list *ngIf="account">
     <ion-card>
-      <ion-card-header>
-        <ion-img [src]="account.picture"></ion-img>
-        <ion-card-title>{{ account.username }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <button class="btn btn-primary" type="button" (click)="signOut()">
-          Se déconnecter
-        </button>
+      <ion-card-content class="d-flex align-items-center">
+          <ion-img class="mr-3 w-25" [src]="account.picture"></ion-img>
+          <ion-card-title>{{ account.username }}</ion-card-title>
       </ion-card-content>
     </ion-card>
-  </div>
+    <ion-item>
+      <ion-icon slot="start" icon="moon"></ion-icon>
+      <ion-label>Mode sombre</ion-label>
+      <ion-toggle slot="end" [value]="account.darkModeEnable" (ionChange)="toggleDarkMode()"></ion-toggle>
+    </ion-item>
+    <ion-item button (click)="edit()">
+      <ion-icon slot="start" icon="create"></ion-icon>
+      <ion-label>Modifier votre compte</ion-label>
+    </ion-item>
+    <ion-item button (click)="signOut()">
+      <ion-icon slot="start" icon="log-out"></ion-icon>
+      <ion-label>Se déconnecter</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
