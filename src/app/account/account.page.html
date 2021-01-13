@@ -20,7 +20,7 @@
     <ion-item>
       <ion-icon slot="start" icon="moon"></ion-icon>
       <ion-label>Mode sombre</ion-label>
-      <ion-toggle slot="end" (ionChange)="toggleDarkMode()"></ion-toggle>
+      <ion-toggle slot="end" (ionChange)="toggleDarkMode()" [checked]="isDarkMode"></ion-toggle>
     </ion-item>
     <ion-item button (click)="edit()">
       <ion-icon slot="start" icon="create"></ion-icon>

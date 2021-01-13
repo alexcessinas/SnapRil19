@@ -14,6 +14,7 @@ import { EditAccountModal } from '../components/edit-account-modal/edit-account.
 export class AccountPage implements OnInit {
 
   public account: User;
+  public isDarkMode: boolean;
 
   constructor(
     private readonly authService: AuthService,
@@ -22,6 +23,7 @@ export class AccountPage implements OnInit {
     public modalController: ModalController) {}
 
   ngOnInit(): void {
+    this.isDarkMode = !!localStorage.getItem('darkMode');
     this.userService.getCurrentUser().subscribe(user => {
       this.account = user;
     });
@@ -45,8 +47,6 @@ export class AccountPage implements OnInit {
     document.body.classList.toggle('dark');
     console.log(document.body.classList.value);
     localStorage.setItem('darkMode', document.body.classList.value);
-    // this.account.darkModeEnable = document.body.classList.contains('dark');
-    // this.userService.update(this.account);
   }
 
 }

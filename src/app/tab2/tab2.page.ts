@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, OnInit, ViewChild } from '@angular/core';
 import { Message, User } from 'snapril-lib';
 import { FormControl, Validators } from '@angular/forms';
 import { MessageService } from '../services/message/message.service';
@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 import { UserService } from '../services/user/user.service';
 import { IonContent } from '@ionic/angular';
 import { PhotoService } from '../services/photo/photo.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
     selector: 'app-tab2',
@@ -19,6 +20,7 @@ export class Tab2Page implements OnInit, AfterViewChecked {
     public currentUser: User;
     messages: Message[] = [];
     text: string;
+    public geolocationValue: string;
     public textControl = new FormControl(null, Validators.required);
 
     @ViewChild('content') contentElem: IonContent;
@@ -26,7 +28,8 @@ export class Tab2Page implements OnInit, AfterViewChecked {
     constructor(
         private readonly messageService: MessageService,
         private readonly userService: UserService,
-        public photoService: PhotoService,
+        private readonly photoService: PhotoService,
+        private readonly geolocation: Geolocation
         ) {
     }
 
@@ -40,6 +43,11 @@ export class Tab2Page implements OnInit, AfterViewChecked {
                 this.messages.push(value);
                 setTimeout(() => {this.ionContent.scrollToBottom(0)}, 500)
             });
+            this.geolocation.getCurrentPosition().then((resp) => {
+                this.geolocationValue = `${resp?.coords.latitude},${resp?.coords.longitude}`;
+            }).catch((error) => {
+                console.log('Error getting location', error);
+            });
         });
     }
 
@@ -52,7 +60,7 @@ export class Tab2Page implements OnInit, AfterViewChecked {
             const data: Message = {
                 date: Date.now(),
                 author,
-                geolocation: 'ICI',
+                geolocation: this.geolocationValue,
                 content: this.text
             };
             this.messageService.send(data);
@@ -66,7 +74,7 @@ export class Tab2Page implements OnInit, AfterViewChecked {
                 const data: Message = {
                     date: Date.now(),
                     author,
-                    geolocation: 'ICI',
+                    geolocation: this.geolocationValue,
                     content: this.photoService.photos[0].webviewPath
                 };
                 this.messageService.send(data);

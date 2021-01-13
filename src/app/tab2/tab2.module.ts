@@ -6,6 +6,7 @@ import { Tab2Page } from './tab2.page';
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 import { TableMessagesPageModule } from '../components/message/table-message/table-messages.module';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import { TableMessagesPageModule } from '../components/message/table-message/tab
         TableMessagesPageModule,
         ReactiveFormsModule
     ],
-  declarations: [Tab2Page]
+  declarations: [Tab2Page],
+    providers: [Geolocation]
 })
 export class Tab2PageModule {}
