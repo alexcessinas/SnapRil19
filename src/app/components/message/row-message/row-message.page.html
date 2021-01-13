@@ -5,7 +5,8 @@
   <ion-label>
     <h3>{{value?.author?.username | titlecase}} - le {{value?.date | date :'dd/MM HH:mm'}}</h3>
     <ion-text class="text-wrap">
-      <p>{{value?.content}}</p>
+      <p *ngIf="!isPicture">{{value?.content}}</p>
+      <img style="width: 50%" [src]="value?.content" *ngIf="isPicture" alt="Photo"/>
     </ion-text>
   </ion-label>
 </ion-item>
