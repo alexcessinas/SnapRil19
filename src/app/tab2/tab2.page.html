@@ -9,13 +9,13 @@
 <ion-content [scrollEvents]="true">
   <app-table-messages [currentUser]="currentUser" [messages]="messages"></app-table-messages>
 </ion-content>
-<ion-footer  class="row form-group" style="margin-left: 0px">
+<ion-footer class="row form-group" style="margin: 0px">
     <ion-textarea [formControl]="textControl" style="width: 85%" [(ngModel)]="text"></ion-textarea>
     <ion-button
             [disabled]="textControl.invalid"
             (click)="send()"
             style="width: 15%; align-self: center"
-            class="ion-float-right">
+            class="ion-float-right mr-3">
       <ion-icon name="send-outline"></ion-icon>
     </ion-button>
 </ion-footer>

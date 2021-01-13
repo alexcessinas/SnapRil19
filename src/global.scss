@@ -29,3 +29,6 @@
 @import "../node_modules/bootswatch/dist/pulse/variables";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootswatch/dist/pulse/bootswatch";
+
+/* Ionic dark mode */
+@import "theme/dark.scss";
