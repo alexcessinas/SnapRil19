@@ -10,16 +10,12 @@ import { Icons } from '../constants/icons.constant';
 export class TabsPage implements OnInit {
   icon = Icons;
 
-  constructor(private readonly userService: UserService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    // this.userService.getCurrentUser().subscribe(user => {
-    //   if (user.darkModeEnable) {
-    //     document.body.classList.add('dark');
-    //   } else {
-    //     document.body.classList.remove('dark');
-    //   }
-    // });
+    if (localStorage.getItem('darkMode')){
+      document.body.classList.toggle('dark');
+    }
   }
 
 }

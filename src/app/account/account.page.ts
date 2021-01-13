@@ -43,8 +43,10 @@ export class AccountPage implements OnInit {
 
   public toggleDarkMode(): void {
     document.body.classList.toggle('dark');
-    //this.account.darkModeEnable = document.body.classList.contains('dark');
-    //this.userService.update(this.account);
+    console.log(document.body.classList.value);
+    localStorage.setItem('darkMode', document.body.classList.value);
+    // this.account.darkModeEnable = document.body.classList.contains('dark');
+    // this.userService.update(this.account);
   }
 
 }

@@ -15,7 +15,6 @@ export class Tab3Page implements OnInit{
 
   ngOnInit(): void {
     this.friendService.getAllUser().subscribe(value => {
-      console.log(value);
       this.users = value;
     });
   }
