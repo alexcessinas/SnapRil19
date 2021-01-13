@@ -44,7 +44,7 @@ export class AccountPage implements OnInit {
   public toggleDarkMode(): void {
     document.body.classList.toggle('dark');
     this.account.darkModeEnable = document.body.classList.contains('dark');
-    this.userService.update(this.account);
+    //this.userService.update(this.account);
   }
 
 }

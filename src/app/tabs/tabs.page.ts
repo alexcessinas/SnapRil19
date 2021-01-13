@@ -13,13 +13,13 @@ export class TabsPage implements OnInit {
   constructor(private readonly userService: UserService) {}
 
   ngOnInit(): void {
-    this.userService.getCurrentUser().subscribe(user => {
-      if (user.darkModeEnable) {
-        document.body.classList.add('dark');
-      } else {
-        document.body.classList.remove('dark');
-      }
-    });
+    // this.userService.getCurrentUser().subscribe(user => {
+    //   if (user.darkModeEnable) {
+    //     document.body.classList.add('dark');
+    //   } else {
+    //     document.body.classList.remove('dark');
+    //   }
+    // });
   }
 
 }
