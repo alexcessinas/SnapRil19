@@ -5,7 +5,10 @@
     </ion-avatar>
     <ion-label>
       <ion-card-subtitle>{{value?.date | date: datePattern}} - {{value?.author?.username | titlecase}}</ion-card-subtitle>
-      <ion-text class="text-wrap">{{value?.content}}</ion-text>
+      <ion-text class="text-wrap">
+        <p *ngIf="!isPicture">{{value?.content}}</p>
+        <img style="width: 50%" [src]="value?.content" *ngIf="isPicture" alt="Photo"/>
+      </ion-text>
     </ion-label>
   </ion-item>
 </ion-card>

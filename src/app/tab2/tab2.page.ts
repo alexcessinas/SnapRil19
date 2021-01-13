@@ -5,7 +5,7 @@ import { MessageService } from '../services/message/message.service';
 import { first } from 'rxjs/operators';
 import { UserService } from '../services/user/user.service';
 import { IonContent } from '@ionic/angular';
-import { Subject } from 'rxjs';
+import { PhotoService } from '../services/photo/photo.service';
 
 @Component({
     selector: 'app-tab2',
@@ -21,7 +21,14 @@ export class Tab2Page implements OnInit, AfterViewChecked {
     text: string;
     public textControl = new FormControl(null, Validators.required);
 
-    constructor(private readonly messageService: MessageService, private readonly userService: UserService) { }
+    @ViewChild('content') contentElem: IonContent;
+
+    constructor(
+        private readonly messageService: MessageService,
+        private readonly userService: UserService,
+        public photoService: PhotoService,
+        ) {
+    }
 
     ngOnInit(): void {
         this.userService.getCurrentUser().subscribe(user => {
@@ -50,6 +57,21 @@ export class Tab2Page implements OnInit, AfterViewChecked {
             };
             this.messageService.send(data);
             this.text = null;
+        });
+    }
+
+    public takePicture() {
+        this.photoService.addNewToGallery().then(r => {
+            this.userService.getCurrentUser().subscribe(author => {
+                const data: Message = {
+                    date: Date.now(),
+                    author,
+                    geolocation: 'ICI',
+                    content: this.photoService.photos[0].webviewPath
+                };
+                this.messageService.send(data);
+                this.text = null;
+            });
         });
     }
 }

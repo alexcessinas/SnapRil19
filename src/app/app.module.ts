@@ -15,6 +15,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { firebase } from '../environments/environment';
+import { NewPrivateMessageModule } from './components/modal-content/new-private-message.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +28,8 @@ import { firebase } from '../environments/environment';
     FontAwesomeModule,
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NewPrivateMessageModule
   ],
   providers: [
     StatusBar,

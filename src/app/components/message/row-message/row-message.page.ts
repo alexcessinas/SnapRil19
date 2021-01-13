@@ -1,5 +1,5 @@
 import { Component, Input, LOCALE_ID, OnInit } from '@angular/core';
-import { Message, User } from 'snapril-lib';
+import { Message } from 'snapril-lib';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 
@@ -15,9 +15,10 @@ export class RowMessagePage implements OnInit {
   @Input() overloadClass: string;
 
   public datePattern = 'dd/MM HH:mm';
-
+  isPicture: boolean;
 
   ngOnInit(): void {
     this.datePattern = new Date(this.value.date).getDate() === new Date().getDate() ? 'HH:mm' : 'dd/MM';
+    this.isPicture = !!this.value?.content?.match(/data:image\/([a-zA-Z0-9-.+]+).*,.*/);
   }
 }

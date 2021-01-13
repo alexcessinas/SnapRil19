@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Nouvelle conversation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let user of users">
+      <app-row-friend [value]="user" [shownSelect]="true"></app-row-friend>
+    </div>
+  </ion-list>
+</ion-content>
