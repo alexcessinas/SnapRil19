@@ -151,3 +151,11 @@ body.dark {
 .ios body.dark ion-title.large-title {
   color: var(--ion-text-color, #ffffff);
 }
+
+body.dark {
+  ion-footer,
+  ion-list {
+    background-color: var(--ion-background-color, #121212);
+    color: var(--ion-text-color, #ffffff);
+  }
+}
