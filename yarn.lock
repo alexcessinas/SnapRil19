@@ -1049,6 +1049,11 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@capacitor/android@^2.4.5":
+  version "2.4.6"
+  resolved "http://10.8.0.8:4873/@capacitor%2fandroid/-/android-2.4.6.tgz#57c65f67d6a4e6b67f7f0f7fd23fa4c3c324ecc2"
+  integrity sha512-SBXO0eVtkssnq1gfs6n/8vJLJXPjzqbIblhPetMiR0Myvjt9eqB7v5HbQ4t1EW0+jV46UGyFV6CPCrZeKPtvXg==
+
 "@capacitor/cli@2.4.5":
   version "2.4.5"
   resolved "http://10.8.0.8:4873/@capacitor%2fcli/-/cli-2.4.5.tgz#614cc3cd0773377db3bb8ac49eafb2e6a621361d"
@@ -5728,6 +5733,11 @@ jest-worker@^26.0.0:
     "@types/node" "*"
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
+
+jetifier@^1.6.6:
+  version "1.6.6"
+  resolved "http://10.8.0.8:4873/jetifier/-/jetifier-1.6.6.tgz#fec8bff76121444c12dc38d2dad6767c421dab68"
+  integrity sha512-JNAkmPeB/GS2tCRqUzRPsTOHpGDah7xP18vGJfIjZC+W2sxEHbxgJxetIjIqhjQ3yYbYNEELkM/spKLtwoOSUQ==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
