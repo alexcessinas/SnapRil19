@@ -2,7 +2,7 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { NewPrivateMessage } from './new-private-message';
 import { CommonModule } from '@angular/common';
-import { RowFriendPageModule } from '../friend/row-friend/row-friend.module';
+import { RowFriendPageModule } from '../../friend/row-friend/row-friend.module';
 
 
 @NgModule({

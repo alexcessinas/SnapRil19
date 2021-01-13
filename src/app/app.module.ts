@@ -15,7 +15,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { firebase } from '../environments/environment';
-import { NewPrivateMessageModule } from './components/modal-content/new-private-message.module';
+import { GeolocalisationModule } from './components/modal-content/geolocalisation/geolocalisation.module';
+import { NewPrivateMessageModule } from './components/modal-content/new-private-message/new-private-message.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,8 @@ import { NewPrivateMessageModule } from './components/modal-content/new-private-
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
     AngularFireDatabaseModule,
-    NewPrivateMessageModule
+    NewPrivateMessageModule,
+    GeolocalisationModule
   ],
   providers: [
     StatusBar,

@@ -1,10 +1,12 @@
 <ion-card [ngClass]="overloadClass">
   <ion-item lines="none" class="d-flex align-items-start">
     <ion-avatar slot="start">
-      <img [src]="value?.author?.picture"/>
+      <img [src]="value?.author?.picture" alt="picture"/>
     </ion-avatar>
     <ion-label>
-      <ion-card-subtitle>{{value?.date | date: datePattern}} - {{value?.author?.username | titlecase}}</ion-card-subtitle>
+      <ion-card-subtitle>{{value?.date | date: datePattern}} - {{value?.author?.username | titlecase}}
+          <ion-icon style="vertical-align: middle" (click)="clickGeolocalisation(value)" size="small" icon="map-outline"></ion-icon>
+      </ion-card-subtitle>
       <ion-text class="text-wrap">
         <p *ngIf="!isPicture">{{value?.content}}</p>
         <img style="width: 50%" [src]="value?.content" *ngIf="isPicture" alt="Photo"/>

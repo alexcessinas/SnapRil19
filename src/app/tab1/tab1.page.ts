@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalService } from '../services/modal.service';
 import { FriendService } from '../services/friend/friend.service';
-import { NewPrivateMessage } from '../components/modal-content/new-private-message';
+import { NewPrivateMessage } from '../components/modal-content/new-private-message/new-private-message';
 
 @Component({
   selector: 'app-tab1',
