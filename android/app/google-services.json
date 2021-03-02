@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "165354873219",
+    "firebase_url": "https://snap-ril19-default-rtdb.firebaseio.com",
+    "project_id": "snap-ril19",
+    "storage_bucket": "snap-ril19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165354873219:android:4361840ba6280f7ee056b6",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165354873219-la2569p51caeiquj3615plcl0dk76m3v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKQLwwCDeUFYwcVS2zskzHp1CXztlAU3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165354873219-la2569p51caeiquj3615plcl0dk76m3v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

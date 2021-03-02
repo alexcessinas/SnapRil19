@@ -7,6 +7,10 @@ import { UserService } from '../services/user/user.service';
 import { IonContent } from '@ionic/angular';
 import { PhotoService } from '../services/photo/photo.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Capacitor } from '@capacitor/core';
+import { Plugins, PushNotification, PushNotificationActionPerformed, PushNotificationToken } from '@capacitor/core';
+const { PushNotifications } = Plugins;
+const isPushNotificationsAvailable = Capacitor.isPluginAvailable('PushNotifications');
 
 @Component({
     selector: 'app-general-chat',
@@ -51,6 +55,54 @@ export class GeneralChatPage implements OnInit, AfterViewChecked {
                 console.log('Error getting location', error);
             });
         });
+        console.log(isPushNotificationsAvailable);
+        if (isPushNotificationsAvailable) {
+            this.initPushNotifications();
+        }
+    }
+
+    private initPushNotifications(){
+        console.log('Initializing HomePage');
+
+        // Request permission to use push notifications
+        // iOS will prompt user and return if they granted permission or not
+        // Android will just grant without prompting
+        PushNotifications.requestPermission().then( result => {
+            if (result.granted) {
+                // Register with Apple / Google to receive push via APNS/FCM
+                PushNotifications.register();
+            } else {
+                // Show some error
+            }
+        });
+
+        // On success, we should be able to receive notifications
+        PushNotifications.addListener('registration',
+            (token: PushNotificationToken) => {
+                alert('Push registration success, token: ' + token.value);
+            }
+        );
+
+        // Some issue with our setup and push will not work
+        PushNotifications.addListener('registrationError',
+            (error: any) => {
+                alert('Error on registration: ' + JSON.stringify(error));
+            }
+        );
+
+        // Show us the notification payload if the app is open on our device
+        PushNotifications.addListener('pushNotificationReceived',
+            (notification: PushNotification) => {
+                alert('Push received: ' + JSON.stringify(notification));
+            }
+        );
+
+        // Method called when tapping on a notification
+        PushNotifications.addListener('pushNotificationActionPerformed',
+            (notification: PushNotificationActionPerformed) => {
+                alert('Push action performed: ' + JSON.stringify(notification));
+            }
+        );
     }
 
     ngAfterViewChecked(): void {
