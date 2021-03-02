@@ -7,14 +7,11 @@
 </ion-header>
 
 <ion-content>
-  <div>
-    
-  </div>
   <ion-list *ngIf="account">
     <ion-card>
       <ion-card-content class="d-flex align-items-center">
-          <ion-img class="mr-3 w-25" [src]="account.picture"></ion-img>
-          <ion-card-title>{{ account.username }}</ion-card-title>
+        <img class="mb-3 w-25 rounded-circle" [src]="account.picture ? account.picture : defaultPicture" alt="Image de profil">
+        <ion-card-title>{{ account.username }}</ion-card-title>
       </ion-card-content>
     </ion-card>
     <ion-item>

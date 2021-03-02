@@ -186,4 +186,8 @@ body.neon {
   ion-footer {
     background: rgba(0, 0, 0, 27.5%);
   }
+
+  .in-backdrop {
+    filter: blur(5px);
+  }
 }

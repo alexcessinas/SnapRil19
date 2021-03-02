@@ -7,16 +7,28 @@
 </ion-header>
 
 <ion-content>
-  
-</ion-content>
+  <form [formGroup]="editAccountForm">
+    <ion-list>
 
-<ion-footer>
-  <div class="p-2">
-    <button class="btn btn-primary rounded-circle">
-      <ion-icon name="checkmark-sharp" size="large"></ion-icon>
-    </button>
-    <button class="btn btn-danger rounded-circle" (click)="dismiss()">
-      <ion-icon name="close-sharp" size="large"></ion-icon>
-    </button>
-  </div>
-</ion-footer>
+      <ion-card-content class="d-flex justify-content-center align-items-center">
+        <img class="mr-3 w-25 rounded-circle" [src]="renderImg" alt="Image de profil">
+      </ion-card-content>
+
+      <ion-item>
+        <ion-icon slot="start" name="information"></ion-icon>
+        <ion-input type="text" [value]="account.username" [(ngModel)]="account.username" formControlName="username" placeholder="Username"></ion-input>
+      </ion-item>
+
+      <ion-item button (click)="takePicture()">
+        <ion-icon slot="start" name="image"></ion-icon>
+        <ion-label>Image de profil</ion-label>
+        <ion-input hidden type="text" [value]="account.picture" [(ngModel)]="account.picture" formControlName="picture"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <div class="d-flex justify-content-center">
+      <ion-button color="primary" type="button" [disabled]="editAccountForm.invalid" (click)="save()">Sauvegarder</ion-button>
+      <ion-button color="tertiary" type="button" (click)="dismiss()">Annuler</ion-button>
+    </div>
+  </form>
+</ion-content>

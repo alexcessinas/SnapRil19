@@ -4,6 +4,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable, Subject } from 'rxjs';
 import { User } from 'snapril-lib';
 
+export const DEFAULT_ACCOUNT_PICTURE = 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +18,7 @@ export class UserService {
   constructor(private readonly afdb: AngularFireDatabase, private readonly auth: AngularFireAuth) { }
 
   public createUser(id: string, username: string): void {
-    const picture = 'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png';
+    const picture = DEFAULT_ACCOUNT_PICTURE;
     const user: User = { id, username, picture };
     this.afdb.list<User>(this.dbRef).set(id, user);
   }

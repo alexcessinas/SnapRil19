@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
-import { UserService } from '../services/user/user.service';
+import { DEFAULT_ACCOUNT_PICTURE, UserService } from '../services/user/user.service';
 import { User } from 'snapril-lib';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
@@ -16,6 +16,7 @@ export class AccountPage implements OnInit {
   public account: User;
   public isDarkMode: boolean;
   public isNeonMode: boolean;
+  public defaultPicture = DEFAULT_ACCOUNT_PICTURE;
 
   constructor(
     private readonly authService: AuthService,
