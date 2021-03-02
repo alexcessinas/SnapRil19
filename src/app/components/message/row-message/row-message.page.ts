@@ -25,7 +25,7 @@ export class RowMessagePage implements OnInit {
 
   ngOnInit(): void {
     this.datePattern = new Date(this.value.date).getDate() === new Date().getDate() ? 'HH:mm' : 'dd/MM';
-    this.isPicture = !!this.value?.content?.match(/data:image\/([a-zA-Z0-9-.+]+).*,.*/);
+    this.isPicture = !!this.value?.picture?.match(/data:image\/([a-zA-Z0-9-.+]+).*,.*/);
   }
 
   clickGeolocalisation(value: Message) {

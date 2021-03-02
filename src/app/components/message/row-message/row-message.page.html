@@ -8,8 +8,10 @@
           <ion-icon style="vertical-align: middle" (click)="clickGeolocalisation(value)" size="small" icon="map-outline"></ion-icon>
       </ion-card-subtitle>
       <ion-text class="text-wrap">
-        <p *ngIf="!isPicture">{{value?.content}}</p>
-        <img style="width: 50%" [src]="value?.content" *ngIf="isPicture" alt="Photo"/>
+        <p>{{value?.content}}</p>
+      </ion-text>
+      <ion-text *ngIf="isPicture" class="text-wrap">
+        <img style="width: 50%" [src]="value?.picture" alt="Photo"/>
       </ion-text>
     </ion-label>
   </ion-item>

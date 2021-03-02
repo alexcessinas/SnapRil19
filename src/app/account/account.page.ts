@@ -47,7 +47,6 @@ export class AccountPage implements OnInit {
 
   public toggleDarkMode(): void {
     document.body.classList.toggle('dark');
-    console.log(document.body.classList.value);
     localStorage.setItem('themeMode', document.body.classList.value);
   }
 

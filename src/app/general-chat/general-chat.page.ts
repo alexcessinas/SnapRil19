@@ -77,7 +77,8 @@ export class GeneralChatPage implements OnInit, AfterViewChecked {
                     date: Date.now(),
                     author,
                     geolocation: this.geolocationValue,
-                    content: this.photoService.photos[0].webviewPath
+                    content: null,
+                    picture: this.photoService.photos[0].webviewPath
                 };
                 this.messageService.send(data);
                 this.text = null;

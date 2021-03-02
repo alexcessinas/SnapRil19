@@ -16,7 +16,6 @@ export class NewPrivateMessage implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    console.log(this.log);
   }
 
   public async close(): Promise<void> {

@@ -14,7 +14,7 @@ export class MessageService {
     }
 
     send(data: Message): void {
-        if (data.content && data.content !== '') {
+        if ((data.content && data.content !== '') || (data.picture && data.picture !== '')) {
             this.fireDatabase.list<Message>('general').push(data);
         }
     }
