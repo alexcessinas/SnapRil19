@@ -169,7 +169,6 @@ body.neon {
   * {
     color: #fff;
     text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #ff00de, 0 0 7px #ff00de, 0 0 8px #ff00de, 0 0 10px #ff00de, 0 0 15px #ff00de;
-    animation: neon 1.5s ease-in-out infinite alternate;
   }
 
   ion-tab-button {
@@ -188,14 +187,5 @@ body.neon {
 
   ion-footer {
     background: rgba(0, 0, 0, 27.5%);
-  }
-}
-
-@keyframes neon {
-  from {
-    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #ff00de, 0 0 7px #ff00de, 0 0 8px #ff00de, 0 0 10px #ff00de, 0 0 15px #ff00de;
-  }
-  to {
-    text-shadow: 0 0 .5px #fff, 0 0 1px #fff, 0 0 1.5px #fff, 0 0 2px #FF1177, 0 0 3.5px #FF1177, 0 0 4px #FF1177, 0 0 5px #FF1177, 0 0 7.5px #FF1177;
   }
 }
