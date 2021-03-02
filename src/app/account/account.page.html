@@ -22,6 +22,11 @@
       <ion-label>Mode sombre</ion-label>
       <ion-toggle slot="end" (ionChange)="toggleDarkMode()" [checked]="isDarkMode"></ion-toggle>
     </ion-item>
+    <ion-item>
+      <ion-icon slot="start" icon="glasses"></ion-icon>
+      <ion-label>Mode néon</ion-label>
+      <ion-toggle slot="end" (ionChange)="toggleNeonMode()" [checked]="isNeonMode"></ion-toggle>
+    </ion-item>
     <ion-item button (click)="edit()">
       <ion-icon slot="start" icon="create"></ion-icon>
       <ion-label>Modifier votre compte</ion-label>

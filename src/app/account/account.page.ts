@@ -15,6 +15,7 @@ export class AccountPage implements OnInit {
 
   public account: User;
   public isDarkMode: boolean;
+  public isNeonMode: boolean;
 
   constructor(
     private readonly authService: AuthService,
@@ -24,6 +25,7 @@ export class AccountPage implements OnInit {
 
   ngOnInit(): void {
     this.isDarkMode = !!localStorage.getItem('darkMode');
+    this.isNeonMode = !!localStorage.getItem('neonMode');
     this.userService.getCurrentUser().subscribe(user => {
       this.account = user;
     });
@@ -46,7 +48,12 @@ export class AccountPage implements OnInit {
   public toggleDarkMode(): void {
     document.body.classList.toggle('dark');
     console.log(document.body.classList.value);
-    localStorage.setItem('darkMode', document.body.classList.value);
+    localStorage.setItem('themeMode', document.body.classList.value);
+  }
+
+  public toggleNeonMode(): void {
+    document.body.classList.toggle('neon');
+    localStorage.setItem('themeMode', document.body.classList.value);
   }
 
 }

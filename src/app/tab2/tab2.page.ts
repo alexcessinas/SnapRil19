@@ -41,7 +41,9 @@ export class Tab2Page implements OnInit, AfterViewChecked {
             });
             this.messageService.getLastMessage$().subscribe(value => {
                 this.messages.push(value);
-                setTimeout(() => {this.ionContent.scrollToBottom(0)}, 500)
+                setTimeout(() => {
+                    this.ionContent.scrollToBottom(0);
+                }, 500);
             });
             this.geolocation.getCurrentPosition().then((resp) => {
                 this.geolocationValue = `${resp?.coords.latitude},${resp?.coords.longitude}`;
@@ -60,7 +62,7 @@ export class Tab2Page implements OnInit, AfterViewChecked {
             const data: Message = {
                 date: Date.now(),
                 author,
-                geolocation: this.geolocationValue,
+                geolocation: this.geolocationValue || 'ici',
                 content: this.text
             };
             this.messageService.send(data);
