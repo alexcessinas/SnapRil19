@@ -171,12 +171,10 @@ body.neon {
     text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #ff00de, 0 0 7px #ff00de, 0 0 8px #ff00de, 0 0 10px #ff00de, 0 0 15px #ff00de;
   }
 
-  ion-tab-button {
-    color: #BD00A4;
-
-    &.tab-selected {
-      color: #fff;
-      background: radial-gradient(circle, #ff00de 10%, rgba(0, 0, 0, 17.5%) 30%);
+  .tab-selected {
+    color: #ff00de;
+    ion-icon {
+      color: #ff00de;
     }
   }
 
