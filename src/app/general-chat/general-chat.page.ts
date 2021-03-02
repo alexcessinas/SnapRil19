@@ -9,11 +9,11 @@ import { PhotoService } from '../services/photo/photo.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
-    selector: 'app-tab2',
-    templateUrl: 'tab2.page.html',
-    styleUrls: ['tab2.page.scss']
+    selector: 'app-general-chat',
+    templateUrl: 'general-chat.page.html',
+    styleUrls: ['general-chat.page.scss']
 })
-export class Tab2Page implements OnInit, AfterViewChecked {
+export class GeneralChatPage implements OnInit, AfterViewChecked {
 
     @ViewChild(IonContent) public ionContent: IonContent;
 

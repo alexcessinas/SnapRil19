@@ -15,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'general-chat',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        loadChildren: () => import('../general-chat/general-chat.module').then(m => m.GeneralChatModule)
       },
       {
         path: 'list-users',

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user/user.service';
 import { Icons } from '../constants/icons.constant';
 
 @Component({
