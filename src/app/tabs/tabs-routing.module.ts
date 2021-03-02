@@ -19,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'list-users',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        loadChildren: () => import('../list-users/list-users.module').then(m => m.ListUsersModule)
       },
       {
         path: 'account',

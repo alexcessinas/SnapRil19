@@ -3,9 +3,9 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
+import { ListUsersPage } from './list-users.page';
 
-import { Tab3PageRoutingModule } from './tab3-routing.module';
+import { ListUsersRoutingModule } from './list-users-routing.module';
 import { TableFriendsPageModule } from '../components/friend/table-friends/table-friends.module';
 
 @NgModule({
@@ -13,10 +13,10 @@ import { TableFriendsPageModule } from '../components/friend/table-friends/table
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{path: '', component: Tab3Page}]),
-    Tab3PageRoutingModule,
+    RouterModule.forChild([{path: '', component: ListUsersPage}]),
+    ListUsersRoutingModule,
     TableFriendsPageModule,
   ],
-  declarations: [Tab3Page]
+  declarations: [ListUsersPage]
 })
-export class Tab3PageModule {}
+export class ListUsersModule {}
