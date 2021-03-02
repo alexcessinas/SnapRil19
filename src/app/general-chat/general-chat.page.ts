@@ -58,7 +58,7 @@ export class GeneralChatPage implements OnInit, AfterViewChecked {
     }
 
     public send(): void {
-        this.userService.getCurrentUser().subscribe(author => {
+        this.userService.getCurrentUser().pipe(first()).subscribe(author => {
             const data: Message = {
                 date: Date.now(),
                 author,
@@ -71,8 +71,8 @@ export class GeneralChatPage implements OnInit, AfterViewChecked {
     }
 
     public takePicture() {
-        this.photoService.addNewToGallery().then(r => {
-            this.userService.getCurrentUser().subscribe(author => {
+        this.photoService.addNewToGallery().then(() => {
+            this.userService.getCurrentUser().pipe(first()).subscribe(author => {
                 const data: Message = {
                     date: Date.now(),
                     author,
