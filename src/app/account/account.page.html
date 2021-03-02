@@ -10,7 +10,9 @@
   <ion-list *ngIf="account">
     <ion-card>
       <ion-card-content class="d-flex align-items-center">
-        <img class="mb-3 w-25 rounded-circle" [src]="account.picture ? account.picture : defaultPicture" alt="Image de profil">
+        <ion-avatar class="mb-3">
+          <ion-img [src]="account.picture ? account.picture : defaultPicture" alt="Image de profil"></ion-img>
+        </ion-avatar>
         <ion-card-title>{{ account.username }}</ion-card-title>
       </ion-card-content>
     </ion-card>

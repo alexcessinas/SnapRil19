@@ -9,8 +9,7 @@ import { PhotoService } from '../../services/photo/photo.service';
 
 @Component({
   selector: 'app-edit-account-modal',
-  templateUrl: 'edit-account.modal.html',
-  styleUrls: ['app-edit-account.modal.scss']
+  templateUrl: 'edit-account.modal.html'
 })
 export class EditAccountModal implements OnInit, OnDestroy {
 

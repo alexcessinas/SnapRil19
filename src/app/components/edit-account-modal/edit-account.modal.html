@@ -11,7 +11,9 @@
     <ion-list>
 
       <ion-card-content class="d-flex justify-content-center align-items-center">
-        <img class="mr-3 w-25 rounded-circle" [src]="renderImg" alt="Image de profil">
+        <ion-avatar>
+          <ion-img [src]="account.picture" alt="Image de profil"></ion-img>
+        </ion-avatar>
       </ion-card-content>
 
       <ion-item>

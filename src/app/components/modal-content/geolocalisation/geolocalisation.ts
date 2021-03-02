@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Components } from '@ionic/core';
 import { Message } from 'snapril-lib';
 import * as L from 'leaflet';
@@ -9,7 +9,7 @@ import * as L from 'leaflet';
   styleUrls: ['geolocalisation.scss']
 })
 // tslint:disable-next-line:component-class-suffix
-export class Geolocalisation implements AfterViewInit{
+export class Geolocalisation implements AfterViewInit, OnInit, OnDestroy {
   @Input() public modal: Components.IonModal;
   value: Message;
   private map: L.Map;
@@ -38,6 +38,14 @@ export class Geolocalisation implements AfterViewInit{
 
   public async close(): Promise<void> {
     await this.modal.dismiss();
+  }
+
+  ngOnDestroy(): void {
+    document.querySelector('ion-router-outlet').classList.remove('in-backdrop');
+  }
+
+  ngOnInit(): void {
+    document.querySelector('ion-router-outlet').classList.add('in-backdrop');
   }
 
 }
