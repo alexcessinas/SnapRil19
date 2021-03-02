@@ -2,17 +2,17 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { PrivateChatPage } from './private-chat.page';
 
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { PrivateChatPageRoutingModule } from './private-chat-routing.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    Tab1PageRoutingModule
+    PrivateChatPageRoutingModule
   ],
-  declarations: [Tab1Page]
+  declarations: [PrivateChatPage]
 })
-export class Tab1PageModule {}
+export class PrivateChatModule {}

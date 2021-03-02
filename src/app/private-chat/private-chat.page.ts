@@ -4,11 +4,11 @@ import { FriendService } from '../services/friend/friend.service';
 import { NewPrivateMessage } from '../components/modal-content/new-private-message/new-private-message';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-private-chat',
+  templateUrl: 'private-chat.page.html',
+  styleUrls: ['private-chat.page.scss']
 })
-export class Tab1Page {
+export class PrivateChatPage {
 
   constructor(
       private readonly modalService: ModalService<NewPrivateMessage>,

@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: 'private-chat',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        loadChildren: () => import('../private-chat/private-chat.module').then(m => m.PrivateChatModule)
       },
       {
         path: 'general-chat',
